@@ -2,8 +2,8 @@
 <ul class="collection">
   <%= for topic <- @topics do %>
     <li class="collection-item">
-      <%= topic.title %>
-      <%= if @conn.assigns.current_user.id == topic.user_id do %>
+      <%= link topic.title, to: topic_path(@conn, :show, topic), class: "ease" %>
+      <%= if @conn.assigns.current_user && @conn.assigns.current_user.id == topic.user_id do %>
         <div class="right">
           <%= link to: topic_path(@conn, :edit, topic), class: "grey-link ease", title: "Edit" do %>
             <i class="material-icons">edit</i>

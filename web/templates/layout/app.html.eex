@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Discuss!</title>
+    <title>Hello Chitter | Submit something, chit chat about it...</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -16,9 +16,16 @@
   <body>
     <nav class="light-blue">
       <div class="nav-wrapper container">
+        <ul class="left">
+          <li>
+            <%= link to: topic_path(@conn, :index), title: "Home", class: "ease" do %>
+              <i class="material-icons">home</i>
+            <% end %>
+          </li>
+        </ul>
         <a href="/" class="brand-logo">Chitter</a>
         <ul class="right">
-          <%= if @conn.assigns[:current_user] do %>
+          <%= if @conn.assigns.current_user do %>
             <li>
               <%= link to: auth_path(@conn, :signout), title: "Logout", class: "ease" do %>
                 <i class="material-icons">eject</i>

@@ -1,0 +1,17 @@
+/* This file is for your main application css. */
+a:hover { text-decoration: none; }
+
+.ease { transition: all 0.2s ease; }
+
+.help-block {
+  color: #ea6464;
+  text-transform: capitalize;
+  margin-top: -15px;
+}
+
+.cancel-link { margin-left: 15px; }
+.grey-link { color: #b3b3b3; }
+.grey-link:hover { color: #757575; }
+.red-link { color: #e29c96; }
+.red-link:hover { color: #da736a; }
+

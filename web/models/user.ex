@@ -8,7 +8,7 @@ defmodule Discuss.User do
     field :image_url, :string
     field :auth_provider, :string
     field :auth_token, :string
-
+    has_many :topics, Discuss.Topic
     timestamps()
   end
 

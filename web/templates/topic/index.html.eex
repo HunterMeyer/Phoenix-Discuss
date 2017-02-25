@@ -3,14 +3,16 @@
   <%= for topic <- @topics do %>
     <li class="collection-item">
       <%= topic.title %>
-      <div class="right">
-        <%= link to: topic_path(@conn, :edit, topic), class: "grey-link ease", title: "Edit" do %>
-          <i class="material-icons">edit</i>
-        <% end %>
-        <%= link to: topic_path(@conn, :delete, topic), class: "red-link ease", title: "Delete", method: :delete, data: [confirm: "This will permanently delete the Topic."] do %>
-          <i class="material-icons">delete</i>
-        <% end %>
-      </div>
+      <%= if @conn.assigns.current_user.id == topic.user_id do %>
+        <div class="right">
+          <%= link to: topic_path(@conn, :edit, topic), class: "grey-link ease", title: "Edit" do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          <%= link to: topic_path(@conn, :delete, topic), class: "red-link ease", title: "Delete", method: :delete, data: [confirm: "This will permanently delete the Topic."] do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>
